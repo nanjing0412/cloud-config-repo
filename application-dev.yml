@@ -25,3 +25,6 @@ security:
       ignore-urls:
         - '/actuator/**'
         - '/v2/api-docs'
+    resource:
+      loadBalanced: true
+      token-info-uri: http://cloud-auth/oauth/check_token
