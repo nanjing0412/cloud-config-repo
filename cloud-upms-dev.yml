@@ -1,3 +1,16 @@
+## spring security 配置
+security:
+  oauth2:
+    client:
+      client-id: ENC(IFj1XPtcQhZ4SgoO8mVPJw==)
+      client-secret: ENC(IFj1XPtcQhZ4SgoO8mVPJw==)
+      scope: server
+      # 默认放行url,子模块重写时application-dev.yml中的公共配置会被覆盖,所以要把公共配置中的放行url再写一次
+      ignore-urls:
+        - '/actuator/**'
+        - '/v2/api-docs'
+        - '/user/info/*'
+
 # 数据源
 spring:
   datasource:
@@ -6,4 +19,9 @@ spring:
     username: root
     password: root
     url: jdbc:mysql://cloud-mysql:3307/cloud_project?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+
+# Logger Config
+logging:
+  level:
+    com.github.jun.cloud.upms.mapper: debug
 

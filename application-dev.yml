@@ -1,0 +1,27 @@
+# 加解密根密码
+jasypt:
+  encryptor:
+    password: jun #根密码
+
+# redis 相关
+spring:
+  redis:
+    password:
+    host: cloud-redis
+    port: 6379
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+## spring security 配置
+security:
+  oauth2:
+    client:
+      # 默认放行url,如果子模块重写这里的配置就会被覆盖
+      ignore-urls:
+        - '/actuator/**'
+        - '/v2/api-docs'
