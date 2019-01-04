@@ -1,0 +1,27 @@
+## spring security 配置
+security:
+  oauth2:
+    client:
+      client-id: ENC(IFj1XPtcQhZ4SgoO8mVPJw==) #cloud
+      client-secret: ENC(IFj1XPtcQhZ4SgoO8mVPJw==) #cloud
+      scope: server
+      ignore-urls:
+        - '/actuator/**'
+        - '/v2/api-docs'
+        - '/service/**'
+        - '/editor-app/**'
+        - '/task/view/*'
+        - '/process/resource/**'
+        - '/modeler.html'
+spring:
+  autoconfigure:
+    exclude: org.activiti.spring.boot.SecurityAutoConfiguration
+  activiti:
+    # 自动部署验证设置:true-开启（默认）、false-关闭
+    check-process-definitions: false
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://cloud-mysql:3307/cloud_project_activiti?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
